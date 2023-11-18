@@ -6,6 +6,9 @@ import { ThemeContext } from './Context/ThemeContext'
 
 function App() {
   const [theme, setTheme] = useState('light')
+  useEffect(()=>{
+   setTheme(localStorage.getItem('theme')?localStorage.getItem('theme'):'dark')
+  },[])
 
   useEffect(() => {
     // Update the class for the body element based on the selected theme

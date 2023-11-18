@@ -8,6 +8,7 @@ import { ThemeContext } from '../Context/ThemeContext';
 function Header() {
     const [toggle,setToggle]=useState(false)
     const {theme,setTheme}=useContext(ThemeContext)
+   
 
     useEffect(()=>{
       console.log("Theme",theme)
@@ -26,19 +27,19 @@ function Header() {
           <input
             type="text"
             placeholder="Search Games"
-            className="px-2 bg-transparent dark:bg-cyan-400 outline-none"
+            className="px-2 bg-transparent outline-none"
           />
         </div>
         <div>
           {theme=='light' ? (
             <HiMoon
               className="text-[35px] bg-slate-200 text-black p-1 rounded-full cursor-pointer"
-              onClick={() => setTheme('dark')}
+              onClick={() => {setTheme('dark');localStronge.setItem('theme','dark')}}
             />
           ) : (
             <HiSun
               className="text-[35px] bg-slate-200 text-black p-1 rounded-full cursor-pointer"
-              onClick={() => setTheme('light')}
+              onClick={() => {setTheme('light');localStronge.setItem('theme','light')}}
             />
           )}
         </div>
